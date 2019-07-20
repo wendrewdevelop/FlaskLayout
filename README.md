@@ -58,7 +58,7 @@ $ pip install waitress
 
 *Initialize server*
 $ waitress-serve --call 'flaskr:create_app'
-~Serving on http://0.0.0.0:8080'~
+'Serving on http://0.0.0.0:8080'
 
 __*INSTALL IN OTHER VIRTUALENV*__
 pip install App-1.0.0-py3-none-any.whl
