@@ -1,0 +1,24 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flask Layout Base</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<nav>
+  <h1>Flask Layout Base</h1>
+  <ul>
+    {% if g.user %}
+      <li><span><b>Usuário: </b>{{ g.user['username'] }}</span></li>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+      <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+    {% endif %}
+  </ul>
+</nav><hr>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
